@@ -71,7 +71,7 @@ This plugin is being deprecated. No more work will be done on this plugin by the
 --- 
 
 ## Installation
-    in proyect directory:
+    in project directory:
     mkdir customPlugins
     cd customPlugins    
     git clone https://github.com/juanfc/cordova-plugin-contacts-ws.git
