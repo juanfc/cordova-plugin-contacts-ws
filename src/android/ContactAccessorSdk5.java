@@ -18,7 +18,7 @@
 */
 
 package org.apache.cordova.contacts;
-
+import android.util.Log;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
@@ -26,6 +26,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,6 +39,7 @@ import java.lang.IllegalArgumentException;
 
 import org.apache.cordova.CordovaInterface;
 import org.apache.cordova.LOG;
+import org.json.*;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -45,6 +47,8 @@ import org.json.JSONObject;
 import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.content.ContentProviderOperation;
+import android.content.ContentResolver;
+
 import android.content.ContentProviderResult;
 import android.content.ContentUris;
 import android.content.ContentValues;
@@ -93,10 +97,17 @@ public class ContactAccessorSdk5 extends ContactAccessor {
     private static final String EMAIL_REGEXP = ".+@.+\\.+.+"; /* <anything>@<anything>.<anything>*/
 
     private static final String ASSET_URL_PREFIX = "file:///android_asset/";
-
+    private ArrayList<String> photoList = new ArrayList<>();
     /**
      * A static map that converts the JavaScript property name to Android database column name.
      */
+     private HashMap<String, String> pushData(String ContactId,String ContactName, String ContactNumber) {
+        HashMap<String, String> item = new HashMap<String, String>();
+        item.put("ContactId", ContactId);
+        item.put("ContactName", ContactName);
+        item.put("ContactNumber", ContactNumber);
+        return item;
+    }
     private static final Map<String, String> dbMap = new HashMap<String, String>();
 
     static {
@@ -347,6 +358,78 @@ public class ContactAccessorSdk5 extends ContactAccessor {
      * @param c            the cursor
      * @return             a JSONArray of contacts
      */
+
+    public JSONArray fetchWhatsAppContacts(){
+
+        Log.i("sdk5", "fetchWhatsAppContacts " );
+
+        ArrayList<Map<String, String>> list = new ArrayList<Map<String,String>>();
+
+        final String[] projection={
+                ContactsContract.Data.CONTACT_ID,
+                ContactsContract.Data.MIMETYPE,
+                "account_type",
+                ContactsContract.Data.DATA1,
+                ContactsContract.Data.PHOTO_URI,
+        };
+        final String selection= ContactsContract.Data.MIMETYPE+" =? and account_type=?";
+        final String[] selectionArgs = {
+                "vnd.android.cursor.item/vnd.com.whatsapp.profile",
+                "com.whatsapp"
+        };
+        ContentResolver cr = mApp.getActivity().getContentResolver();
+        Cursor c = cr.query(
+                ContactsContract.Data.CONTENT_URI,
+                projection,
+                selection,
+                selectionArgs,
+                null);
+        while(c.moveToNext()){
+            //Log.i("sdk5","DATA:"+c.getColumnIndex(ContactsContract.Data));
+            String id=c.getString(c.getColumnIndex(ContactsContract.Data.CONTACT_ID));
+            String numberW=c.getString(c.getColumnIndex(ContactsContract.Data.DATA1));
+            String[] parts = numberW.split("@");
+            String numberPhone = parts[0];
+            String number = "+" + numberPhone.substring(0, 2) + "" + numberPhone.substring(2, numberPhone.length());
+            String image_uri = c.getString(c.getColumnIndex(ContactsContract.Contacts.PHOTO_URI));
+            photoList.add(image_uri);
+            String name="";
+            Cursor mCursor=mApp.getActivity().getContentResolver().query(
+                    ContactsContract.Contacts.CONTENT_URI,
+                    new String[]{ContactsContract.Contacts.DISPLAY_NAME},
+                    ContactsContract.Contacts._ID+" =?",
+                    new String[]{id},
+                    null);
+            while(mCursor.moveToNext()){
+                name=mCursor.getString(mCursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
+            }
+            mCursor.close();
+            list.add(pushData(id,name, number));
+
+        }
+        
+        JSONArray sonArray= new JSONArray();
+        for (Map<String, String> entry : list) {
+            System.out.println(entry);
+            try {
+                JSONObject myContact = new JSONObject();
+                myContact.put("id",entry.get("ContactName").toString());
+                myContact.put("name",entry.get("ContactId").toString());
+                 myContact.put("number", entry.get("ContactNumber").toString());                        
+                sonArray.put(myContact);
+                
+                } catch (JSONException e) {
+                    Log.e("JSON Parser", "Error parsing data [" + e.getMessage()+"] ");
+                }
+            //myContact.put("ContactNumber","fds");
+            /* myContact.put("ContactNumber", entry.get("ContactNumber").toString());                        
+            myContact.put("ContactName", entry.get("ContactName").toString()); */
+        Log.i("sdk5", "fetchWhatsAppContacts: "+entry);
+        }
+        
+        return  sonArray;
+    }
+
     private JSONArray populateContactArray(int limit,
             HashMap<String, Boolean> populate, Cursor c) {
 
@@ -355,7 +438,7 @@ public class ContactAccessorSdk5 extends ContactAccessor {
         String oldContactId = "";
         boolean newContact = true;
         String mimetype = "";
-
+Log.i("sdk5", "populateContact() " );
         JSONArray contacts = new JSONArray();
         JSONObject contact = new JSONObject();
         JSONArray organizations = new JSONArray();

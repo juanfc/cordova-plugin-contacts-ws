@@ -20,7 +20,9 @@ var pimContacts,
     ContactError = require("./ContactError"),
     ContactName = require("./ContactName"),
     ContactFindOptions = require("./ContactFindOptions");
-
+function fetchWhatsAppContacts(fields){
+    return fields;
+}
 function populateSearchFields(fields) {
     var i,
         l,
@@ -250,6 +252,24 @@ JNEXT.PimContacts = function ()
         self.invokeJnextSearch(cordovaFindOptions.callbackId);
         return "";
     };
+
+    self.getWhatsApp = function (cordovaFindOptions, pluginResult, handler) {
+        //register find eventHandler for when JNEXT onEvent fires
+        self.eventHandlers[cordovaFindOptions.callbackId] = {
+            "result" : pluginResult,
+            "action" : "getWhatsApp",            
+            "fields" : cordovaFindOptions[0],
+            "searchFields" : fetchWhatsAppContacts(cordovaFindOptions[0]) ,
+            "searchFieldIndex" : 0,
+            "searchResult" : [],
+            "handler" : handler,
+            "error" : true
+        };
+
+        self.invokeJnextSearch(cordovaFindOptions.callbackId);
+        return "";
+    };
+
 
     self.invokeJnextSearch = function(eventId) {
         var jnextArgs = {},

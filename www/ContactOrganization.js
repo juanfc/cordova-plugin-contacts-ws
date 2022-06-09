@@ -1,3 +1,4 @@
+cordova.define("cordova-plugin-contacts.ContactOrganization", function(require, exports, module) {
 /*
  *
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -39,3 +40,5 @@ var ContactOrganization = function(pref, type, name, dept, title) {
 };
 
 module.exports = ContactOrganization;
+
+});

@@ -17,7 +17,7 @@
        under the License.
 */
 package org.apache.cordova.contacts;
-
+import android.util.Log;
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaActivity;
 import org.apache.cordova.CordovaPlugin;
@@ -42,7 +42,7 @@ import java.lang.reflect.Method;
 
 public class ContactManager extends CordovaPlugin {
 
-    private ContactAccessor contactAccessor;
+    private ContactAccessorSdk5 contactAccessor;
     private CallbackContext callbackContext;        // The callback context from which we were invoked.
     private JSONArray executeArgs;
 
@@ -65,6 +65,7 @@ public class ContactManager extends CordovaPlugin {
     public static final int SAVE_REQ_CODE = 1;
     public static final int REMOVE_REQ_CODE = 2;
     public static final int PICK_REQ_CODE = 3;
+    public static final int GET_WHATSAPP = 4;
 
     public static final String READ = Manifest.permission.READ_CONTACTS;
     public static final String WRITE = Manifest.permission.WRITE_CONTACTS;
@@ -102,7 +103,7 @@ public class ContactManager extends CordovaPlugin {
 
         this.callbackContext = callbackContext;
         this.executeArgs = args;
-
+Log.i("sdk5", "Execute action:"+action );
         /**
          * Check to see if we are on an Android 1.X device.  If we are return an error as we
          * do not support this as of Cordova 1.0.
@@ -118,6 +119,7 @@ public class ContactManager extends CordovaPlugin {
          */
         if (this.contactAccessor == null) {
             this.contactAccessor = new ContactAccessorSdk5(this.cordova);
+            
         }
 
         if (action.equals("search")) {
@@ -127,6 +129,17 @@ public class ContactManager extends CordovaPlugin {
             else
             {
                 getReadPermission(SEARCH_REQ_CODE);
+            }
+        }
+        else if (action.equals("getWhatsApp")) {
+             Log.i("sdk5", "fetchWhatsAppContacts action equial" );
+            if(PermissionHelper.hasPermission(this, READ))
+            {
+                fetchWhatsAppContacts();
+            }
+            else
+            {
+                getReadPermission(GET_WHATSAPP);
             }
         }
         else if (action.equals("save")) {
@@ -211,7 +224,17 @@ public class ContactManager extends CordovaPlugin {
             }
         });
     }
-
+private void fetchWhatsAppContacts() throws JSONException
+    {
+        
+        Log.i("sdk5", "fetchWhatsAppContacts from ContactManager" );
+        this.cordova.getThreadPool().execute(new Runnable() {
+            public void run() {
+                JSONArray res = contactAccessor.fetchWhatsAppContacts();
+                callbackContext.success(res);
+            }
+        });
+    }
 
     /**
      * Launches the Contact Picker to select a single contact.
@@ -282,14 +305,18 @@ public class ContactManager extends CordovaPlugin {
             case SEARCH_REQ_CODE:
                 search(executeArgs);
                 break;
+            case GET_WHATSAPP:
+             Log.i("sdk5", "fetchWhatsAppContacts GET_WHATSAPP" );
+                fetchWhatsAppContacts();
+            break;    
             case SAVE_REQ_CODE:
                 save(executeArgs);
                 break;
             case REMOVE_REQ_CODE:
                 remove(executeArgs);
                 break;
-            case PICK_REQ_CODE:
-                pickContactAsync();
+                case PICK_REQ_CODE:
+                    pickContactAsync();
                 break;
         }
     }

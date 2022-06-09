@@ -1,3 +1,4 @@
+cordova.define("cordova-plugin-contacts.contacts", function(require, exports, module) {
 /*
  *
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -59,6 +60,21 @@ var contacts = {
             exec(win, errorCB, "Contacts", "search", [fields, options]);
         }
     },
+    getWhatsApp: function( successCB, errorCB, options) {
+        console.log("getWhatsApp");
+        
+            // missing 'options' param means return all contacts
+            options = options || { filter: '', multiple: true };
+            var win = function(result) {
+                var cs = [];
+                for (var i = 0, l = result.length; i < l; i++) {
+                    cs.push(convertUtils.toCordovaFormat(contacts.create(result[i])));
+                }
+                successCB(result);
+            };
+            exec(win, errorCB, "Contacts", "getWhatsApp");
+        
+    },
     
     /**
      * This function picks contact from phone using contact picker UI
@@ -97,3 +113,5 @@ var contacts = {
 };
 
 module.exports = contacts;
+
+});

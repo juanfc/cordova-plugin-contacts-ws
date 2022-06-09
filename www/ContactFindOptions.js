@@ -1,3 +1,4 @@
+cordova.define("cordova-plugin-contacts.ContactFindOptions", function(require, exports, module) {
 /*
  *
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -36,3 +37,5 @@ var ContactFindOptions = function(filter, multiple, desiredFields, hasPhoneNumbe
 };
 
 module.exports = ContactFindOptions;
+
+});

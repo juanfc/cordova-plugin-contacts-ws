@@ -12,12 +12,20 @@ interface Navigator {
 }
 
 interface Contacts {
+
+    getWhatsApp(
+        onSuccess: (contacts: any[]) => void,
+        onError?: (error: ContactError) => void,
+        options?: ContactFindOptions): void;
+        
+
     /**
      * The navigator.contacts.create method is synchronous, and returns a new Contact object.
      * This method does not retain the Contact object in the device contacts database,
      * for which you need to invoke the Contact.save method.
      * @param  properties Object with contact fields
      */
+    
     create(properties?: ContactProperties): Contact;
     /**
      * The navigator.contacts.find method executes asynchronously, querying the device contacts database
