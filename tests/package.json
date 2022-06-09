@@ -1,9 +1,9 @@
 {
-  "name": "cordova-plugin-contacts-tests",
+  "name": "cordova-plugin-contacts-ws-tests",
   "version": "2.3.1-dev",
   "description": "",
   "cordova": {
-    "id": "cordova-plugin-contacts-tests",
+    "id": "cordova-plugin-contacts-ws-tests",
     "platforms": []
   },
   "keywords": [

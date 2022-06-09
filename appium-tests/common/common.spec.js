@@ -25,7 +25,7 @@
 // these tests are meant to be executed by Cordova Medic Appium runner
 // you can find it here: https://github.com/apache/cordova-medic/
 // it is not necessary to do a full CI setup to run these tests, just run:
-// node cordova-medic/medic/medic.js appium --platform android --plugins cordova-plugin-contacts
+// node cordova-medic/medic/medic.js appium --platform android --plugins cordova-plugin-contacts-ws
 
 'use strict';
 

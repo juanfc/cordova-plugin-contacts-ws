@@ -1,4 +1,3 @@
-cordova.define("cordova-plugin-contacts.contacts", function(require, exports, module) {
 /*
  *
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -63,6 +62,7 @@ var contacts = {
     getWhatsApp: function( successCB, errorCB, options) {
         console.log("getWhatsApp");
         
+      
             // missing 'options' param means return all contacts
             options = options || { filter: '', multiple: true };
             var win = function(result) {
@@ -113,5 +113,3 @@ var contacts = {
 };
 
 module.exports = contacts;
-
-});

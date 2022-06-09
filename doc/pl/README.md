@@ -17,9 +17,9 @@
 #         under the License.
 -->
 
-# cordova-plugin-contacts
+# cordova-plugin-contacts-ws
 
-[![Build Status](https://travis-ci.org/apache/cordova-plugin-contacts.svg)](https://travis-ci.org/apache/cordova-plugin-contacts)
+[![Build Status](https://travis-ci.org/apache/cordova-plugin-contacts-ws.svg)](https://travis-ci.org/apache/cordova-plugin-contacts-ws)
 
 Ten plugin definiuje obiekt globalny `navigator.contacts`, która zapewnia dostęp do bazy danych kontaktów urządzenia.
 
@@ -37,7 +37,7 @@ Mimo, że obiekt jest dołączony do globalnego zakresu `navigator`, to nie dost
 
 Wymaga to cordova 5.0 + (obecny v1.0.0 stabilne)
 
-    cordova plugin add cordova-plugin-contacts
+    cordova plugin add cordova-plugin-contacts-ws
     
 
 Starsze wersje cordova nadal można zainstalować za pomocą identyfikatora **przestarzałe** (starych v0.2.16)
@@ -47,7 +47,7 @@ Starsze wersje cordova nadal można zainstalować za pomocą identyfikatora **pr
 
 Jest również możliwość instalacji za pośrednictwem repo url bezpośrednio (niestabilny)
 
-    cordova plugin add https://github.com/apache/cordova-plugin-contacts.git
+    cordova plugin add https://github.com/apache/cordova-plugin-contacts-ws.git
     
 
 ### Firefox OS dziwactwa

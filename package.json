@@ -1,25 +1,18 @@
 {
-  "name": "cordova-plugin-contacts",
+  "name": "cordova-plugin-contacts-ws",
   "version": "3.0.2-dev",
   "description": "Cordova Contacts Plugin",
   "types": "./types/index.d.ts",
   "cordova": {
-    "id": "cordova-plugin-contacts",
+    "id": "cordova-plugin-contacts-ws",
     "platforms": [
-      "android",
-      "amazon-fireos",
-      "ubuntu",
-      "ios",
-      "blackberry10",
-      "wp8",
-      "firefoxos",
-      "windows8",
-      "windows"
+      "android"
+  
     ]
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/apache/cordova-plugin-contacts"
+    "url": "https://github.com/juanfc/cordova-plugin-contacts-ws"
   },
   "bugs": {
     "url": "https://issues.apache.org/jira/browse/CB"
@@ -27,17 +20,8 @@
   "keywords": [
     "cordova",
     "contacts",
-    "ecosystem:cordova",
-    "cordova-android",
-    "cordova-amazon-fireos",
-    "cordova-ubuntu",
-    "cordova-ios",
-    "cordova-blackberry10",
-    "cordova-wp7",
-    "cordova-wp8",
-    "cordova-firefoxos",
-    "cordova-windows8",
-    "cordova-windows"
+    "ecosystem:cordova"
+
   ],
   "scripts": {
     "test": "npm run jshint",

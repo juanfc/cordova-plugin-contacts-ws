@@ -1,5 +1,5 @@
 // Type definitions for Apache Cordova Contacts plugin
-// Project: https://github.com/apache/cordova-plugin-contacts
+// Project: https://github.com/apache/cordova-plugin-contacts-ws
 // Definitions by: Microsoft Open Technologies Inc <http://msopentech.com>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 //
@@ -17,7 +17,7 @@ interface Contacts {
         onSuccess: (contacts: any[]) => void,
         onError?: (error: ContactError) => void,
         options?: ContactFindOptions): void;
-        
+
 
     /**
      * The navigator.contacts.create method is synchronous, and returns a new Contact object.

@@ -83,7 +83,7 @@
 * [CB-11043](https://issues.apache.org/jira/browse/CB-11043) **Android** app crashes while trying to save contact with phone numbers array with deleted values
 * [CB-10985](https://issues.apache.org/jira/browse/CB-10985) Android sets type to `-1` for ims Added a corresponding test
 * [CB-11048](https://issues.apache.org/jira/browse/CB-11048) Fix spec27's inadvertant breakage that happened during logging rollback
-* [CB-11041](https://issues.apache.org/jira/browse/CB-11041) `cordova-plugin-contacts` readme must be updated to include instructions on removing phone number from a contact
+* [CB-11041](https://issues.apache.org/jira/browse/CB-11041) `cordova-plugin-contacts-ws` readme must be updated to include instructions on removing phone number from a contact
 * [CB-11033](https://issues.apache.org/jira/browse/CB-11033) Appium tests: Increased the timeout for updating the contact
 * [CB-10399](https://issues.apache.org/jira/browse/CB-10399) Added Appium tests
 * Replace `PermissionHelper.java` with `cordova-plugin-compat`
@@ -133,7 +133,7 @@
 * [CB-9054](https://issues.apache.org/jira/browse/CB-9054): Can't fully reproduce, but we should probably wrap this in an exception anyway.
 
 ### 1.1.0 (Jun 17, 2015)
-* [CB-9128](https://issues.apache.org/jira/browse/CB-9128) cordova-plugin-contacts documentation translation: cordova-plugin-contacts
+* [CB-9128](https://issues.apache.org/jira/browse/CB-9128) cordova-plugin-contacts-ws documentation translation: cordova-plugin-contacts-ws
 * fix npm md issue
 * Add more install text for legacy versions of cordova tools. This closes #60
 * [CB-9056](https://issues.apache.org/jira/browse/CB-9056) Increased timeout of failing tests
@@ -152,7 +152,7 @@
 * [CB-8659](https://issues.apache.org/jira/browse/CB-8659): ios: 4.0.x Compatibility: Remove use of deprecated headers
 * [CB-8604](https://issues.apache.org/jira/browse/CB-8604) Pended unsupported test for wp8, updated documentation
 * [CB-8561](https://issues.apache.org/jira/browse/CB-8561) Integrate TravisCI
-* [CB-8438](https://issues.apache.org/jira/browse/CB-8438) cordova-plugin-contacts documentation translation: cordova-plugin-contacts
+* [CB-8438](https://issues.apache.org/jira/browse/CB-8438) cordova-plugin-contacts-ws documentation translation: cordova-plugin-contacts-ws
 * [CB-8538](https://issues.apache.org/jira/browse/CB-8538) Added package.json file
 * windows: pended .remove test as it is not supported on windows
 * [CB-8395](https://issues.apache.org/jira/browse/CB-8395) marked unsupported tests pending on wp8
@@ -171,7 +171,7 @@
 * [CB-7772](https://issues.apache.org/jira/browse/CB-7772) - [Contacts] Cancelling `pickContact` should call the error callback, not the success callback
 * [CB-7761](https://issues.apache.org/jira/browse/CB-7761) - Misleading text in documentation
 * [CB-7762](https://issues.apache.org/jira/browse/CB-7762) - Parameter list is incorrect for `contacts.find`
-* [CB-7700](https://issues.apache.org/jira/browse/CB-7700) cordova-plugin-contacts documentation translation: cordova-plugin-contacts
+* [CB-7700](https://issues.apache.org/jira/browse/CB-7700) cordova-plugin-contacts-ws documentation translation: cordova-plugin-contacts-ws
 
 ### 0.2.14 (Oct 03, 2014)
 * [CB-7373](https://issues.apache.org/jira/browse/CB-7373) Removes unnecessary Error object creation
@@ -184,7 +184,7 @@
 * [CB-7544](https://issues.apache.org/jira/browse/CB-7544) [Contacts][iOS 8] Contact picker is read-only in iOS 8
 * [CB-7523](https://issues.apache.org/jira/browse/CB-7523) Fixing "ContactFieldType" error in the config.xml
 * [CB-6724](https://issues.apache.org/jira/browse/CB-6724) Empty may be expected.
-* [CB-7249](https://issues.apache.org/jira/browse/CB-7249) cordova-plugin-contacts documentation translation
+* [CB-7249](https://issues.apache.org/jira/browse/CB-7249) cordova-plugin-contacts-ws documentation translation
 * Add missing test, skip some specs on wp
 * rm old test folder and merged with renamed tests folder
 * [CB-7290](https://issues.apache.org/jira/browse/CB-7290) Adds support for universal Windows platform.

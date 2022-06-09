@@ -1,4 +1,3 @@
-cordova.define("cordova-plugin-contacts.convertUtils", function(require, exports, module) {
 /*
  *
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -69,5 +68,3 @@ module.exports = {
         return contact;
     }
 };
-
-});

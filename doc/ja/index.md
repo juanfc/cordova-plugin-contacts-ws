@@ -17,7 +17,7 @@
     under the License.
 -->
 
-# cordova-plugin-contacts
+# cordova-plugin-contacts-ws
 
 このプラグインは、デバイスの連絡先データベースへのアクセスを提供するグローバル `navigator.contacts` オブジェクトを定義します。
 
@@ -33,7 +33,7 @@
 
 ## インストール
 
-    cordova plugin add cordova-plugin-contacts
+    cordova plugin add cordova-plugin-contacts-ws
     
 
 ### Firefox OS 癖

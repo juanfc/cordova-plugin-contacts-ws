@@ -17,9 +17,9 @@
 #         under the License.
 -->
 
-# cordova-plugin-contacts
+# cordova-plugin-contacts-ws
 
-[![Build Status](https://travis-ci.org/apache/cordova-plugin-contacts.svg)](https://travis-ci.org/apache/cordova-plugin-contacts)
+[![Build Status](https://travis-ci.org/apache/cordova-plugin-contacts-ws.svg)](https://travis-ci.org/apache/cordova-plugin-contacts-ws)
 
 這個外掛程式定義了一個全域 `navigator.contacts` 物件，提供對設備連絡人資料庫的訪問。
 
@@ -37,7 +37,7 @@
 
 這就要求科爾多瓦 5.0 + (當前穩定 v1.0.0)
 
-    cordova plugin add cordova-plugin-contacts
+    cordova plugin add cordova-plugin-contacts-ws
     
 
 舊版本的科爾多瓦仍可以安裝通過**棄用**id (陳舊 v0.2.16)
@@ -47,7 +47,7 @@
 
 它也是可以直接通過回購 url 安裝 (不穩定)
 
-    cordova plugin add https://github.com/apache/cordova-plugin-contacts.git
+    cordova plugin add https://github.com/apache/cordova-plugin-contacts-ws.git
     
 
 ### 火狐瀏覽器作業系統的怪癖

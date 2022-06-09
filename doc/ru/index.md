@@ -17,7 +17,7 @@
     under the License.
 -->
 
-# cordova-plugin-contacts
+# cordova-plugin-contacts-ws
 
 Обеспечивает доступ к базе данных контактов устройства.
 
@@ -25,7 +25,7 @@
 
 ## Установка
 
-    cordova plugin add cordova-plugin-contacts
+    cordova plugin add cordova-plugin-contacts-ws
     
 
 ### Особенности Firefox OS

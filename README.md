@@ -23,9 +23,9 @@ description: Manage the contacts on the device.
 
 |AppVeyor|Travis CI|
 |:-:|:-:|
-|[![Build status](https://ci.appveyor.com/api/projects/status/github/apache/cordova-plugin-contacts?branch=master)](https://ci.appveyor.com/project/ApacheSoftwareFoundation/cordova-plugin-contacts)|[![Build Status](https://travis-ci.org/apache/cordova-plugin-contacts.svg?branch=master)](https://travis-ci.org/apache/cordova-plugin-contacts)|
+|[![Build status](https://ci.appveyor.com/api/projects/status/github/apache/cordova-plugin-contacts-ws?branch=master)](https://ci.appveyor.com/project/ApacheSoftwareFoundation/cordova-plugin-contacts-ws)|[![Build Status](https://travis-ci.org/apache/cordova-plugin-contacts-ws.svg?branch=master)](https://travis-ci.org/apache/cordova-plugin-contacts-ws)|
 
-# cordova-plugin-contacts
+# cordova-plugin-contacts-ws
 
 This plugin defines a global `navigator.contacts` object, which provides access to the device contacts database.
 
@@ -69,7 +69,7 @@ This plugin is being deprecated. No more work will be done on this plugin by the
 
 ## Installation
 
-    cordova plugin add cordova-plugin-contacts
+    cordova plugin add cordova-plugin-contacts-ws
     
 Older versions of cordova can still install via the __deprecated__ id (stale v0.2.16)
 
@@ -77,7 +77,7 @@ Older versions of cordova can still install via the __deprecated__ id (stale v0.
     
 It is also possible to install via repo url directly (unstable)
 
-    cordova plugin add https://github.com/apache/cordova-plugin-contacts.git
+    cordova plugin add https://github.com/apache/cordova-plugin-contacts-ws.git
 
 
 ### iOS Quirks

@@ -17,9 +17,9 @@
 #         under the License.
 -->
 
-# cordova-plugin-contacts
+# cordova-plugin-contacts-ws
 
-[![Build Status](https://travis-ci.org/apache/cordova-plugin-contacts.svg)](https://travis-ci.org/apache/cordova-plugin-contacts)
+[![Build Status](https://travis-ci.org/apache/cordova-plugin-contacts-ws.svg)](https://travis-ci.org/apache/cordova-plugin-contacts-ws)
 
 이 플러그인 장치 연락처 데이터베이스에 대 한 액세스를 제공 하는 글로벌 `navigator.contacts` 개체를 정의 합니다.
 
@@ -37,7 +37,7 @@
 
 코르도바 5.0 + (현재 안정적인 v1.0.0) 필요
 
-    cordova plugin add cordova-plugin-contacts
+    cordova plugin add cordova-plugin-contacts-ws
     
 
 코르도바의 이전 버전 **사용** id (오래 된 v0.2.16)를 통해 설치할 수 있습니다.
@@ -47,7 +47,7 @@
 
 그것은 또한 배상 계약 url을 통해 직접 설치할 수 (불안정)
 
-    cordova plugin add https://github.com/apache/cordova-plugin-contacts.git
+    cordova plugin add https://github.com/apache/cordova-plugin-contacts-ws.git
     
 
 ### 파이어 폭스 OS 단점

@@ -17,9 +17,9 @@
 #         under the License.
 -->
 
-# cordova-plugin-contacts
+# cordova-plugin-contacts-ws
 
-[![Build Status](https://travis-ci.org/apache/cordova-plugin-contacts.svg)](https://travis-ci.org/apache/cordova-plugin-contacts)
+[![Build Status](https://travis-ci.org/apache/cordova-plugin-contacts-ws.svg)](https://travis-ci.org/apache/cordova-plugin-contacts-ws)
 
 このプラグインは、デバイスの連絡先データベースへのアクセスを提供するグローバル `navigator.contacts` オブジェクトを定義します。
 
@@ -37,7 +37,7 @@
 
 これはコルドバ 5.0 + (現在安定 v1.0.0) を必要とします。
 
-    cordova plugin add cordova-plugin-contacts
+    cordova plugin add cordova-plugin-contacts-ws
     
 
 コルドバの古いバージョンでも**非推奨**id (古い v0.2.16) 経由でインストールできます。
@@ -47,7 +47,7 @@
 
 また、レポの url 経由で直接インストールすることが可能だ (不安定)
 
-    cordova plugin add https://github.com/apache/cordova-plugin-contacts.git
+    cordova plugin add https://github.com/apache/cordova-plugin-contacts-ws.git
     
 
 ### Firefox OS 癖
